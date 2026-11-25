@@ -57,15 +57,15 @@ if ($flag)
   <h1>Contact Us</h1>
   <!-- TODO: render the form, inline errors, and repopulated values -->
   <form method="post" action="index.php">
-    <label>Name <input type="text" name="name"></label><br>
+    <label>Name <input type="text" name="name" value="<?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?>"></label><br>
     <?php if (isset($errors['name'])): ?>
         <div><?= htmlspecialchars($errors['name'], ENT_QUOTES, 'UTF-8') ?></div>
     <?php endif; ?>
-    <label>Email <input type="email" name="email"></label><br>
+    <label>Email <input type="email" name="email" value="<?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?>"></label><br>
     <?php if (isset($errors['email'])): ?>
         <div><?= htmlspecialchars($errors['email'], ENT_QUOTES, 'UTF-8') ?></div>
     <?php endif; ?>
-    <label>Message <textarea name="message"></textarea></label><br>
+    <label>Message <textarea name="message"><?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8') ?></textarea></label><br>
     <?php if (isset($errors['message'])): ?>
         <div><?= htmlspecialchars($errors['message'], ENT_QUOTES, 'UTF-8') ?></div>
     <?php endif; ?>
