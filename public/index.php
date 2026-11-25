@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-
+error_reporting(E_ALL);
 /**
  * ITCS333 A4 starter — contact form.
  * Requirements (see README rubric):
@@ -22,9 +22,9 @@ $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
   $flag = true;
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $message = $_POST['message'];
+  $name = $_POST['name'] ?? '';
+  $email = $_POST['email']?? '';
+  $message = $_POST['message']?? '';
 
   if (!validate_required($name) || !validate_length($name, 2, 60)){
     $flag = false;
@@ -40,9 +40,10 @@ if (!validate_required($message) || !validate_length($message, 10, 1000)){
     $flag = false;
     $errors['message'] = 'the message field is empty or no valid length has been entered ';
 }
-if ($flag)
+if ($flag){
   header('Location: success.php');
-}
+  exit;
+}}
 
 
 
