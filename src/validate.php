@@ -18,5 +18,5 @@ function validate_email(string $v): bool
 function validate_length(string $v, int $min, int $max): bool
 {
     $len = strlen(trim($v));
-    return $len >= $min && $len <= max;
+    return $len >= $min && $len <= $max;
 }
